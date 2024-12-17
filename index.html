@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Weekly Class Schedule</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    h1 {
+      margin: 20px 0;
+    }
+    .schedule-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .day-column {
+      border: 1px solid #ccc;
+      margin: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 200px;
+      background-color: #f9f9f9;
+    }
+    .day-column h2 {
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    .time-slot {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+    .time-slot span {
+      font-weight: bold;
+      display: block;
+    }
+    .time-slot:last-child {
+      border-bottom: none;
+    }
+    .highlight {
+      background-color: rgba(0, 255, 0, 0.3); /* Green highlight for current class */
+    }
+  </style>
+</head>
+<body>
+  <h1>C2 Batch Weekly Class Schedule</h1>
+  <div class="schedule-container">
+    <!-- Monday -->
+    <div class="day-column" id="Monday">
+      <h2>Monday</h2>
+      <div class="time-slot" data-time="8:00-9:00">
+        <span>8:00-9:00</span> Construction Project Management - Sandeep Shrivastava
+      </div>
+      <div class="time-slot" data-time="9:00-10:00">
+        <span>9:00-10:00</span> Water Resources Engineering - Himanshu Arora
+      </div>
+      <div class="time-slot" data-time="10:00-11:00">
+        <span>10:00-11:00</span> Transportation Engineering - Jinendra Kumar Jain
+      </div>
+      <div class="time-slot" data-time="11:00-12:00">
+        <span>11:00-12:00</span> Estimation and Costing - Sumit Khandelwal
+      </div>
+      <div class="time-slot" data-time="12:00-1:00">
+        <span>12:00-1:00</span> Break
+      </div>
+      <div class="time-slot" data-time="1:00-2:00">
+        <span>1:00-2:00</span> Soft Skills and Personality Development - Niraja Saraswat
+      </div>
+      <div class="time-slot" data-time="2:00-3:00">
+        <span>2:00-3:00</span> Environmental System Design - Amit Kumar
+      </div>
+    </div>
+
+    <!-- Tuesday -->
+    <div class="day-column" id="Tuesday">
+      <h2>Tuesday</h2>
+      <div class="time-slot" data-time="8:00-9:00">
+        <span>8:00-9:00</span> Civil Engineering Practical Applications - Sumit Khandelwal
+      </div>
+      <div class="time-slot" data-time="9:00-10:00">
+        <span>9:00-10:00</span> Construction Management Lab - Sandeep Shrivastava
+      </div>
+      <div class="time-slot" data-time="10:00-11:00">
+        <span>10:00-11:00</span> Water Resources Engineering Laboratory - Himanshu Arora
+      </div>
+      <div class="time-slot" data-time="11:00-12:00">
+        <span>11:00-12:00</span> Break
+      </div>
+      <div class="time-slot" data-time="12:00-1:00">
+        <span>12:00-1:00</span> Estimation and Costing - Sumit Khandelwal
+      </div>
+      <div class="time-slot" data-time="1:00-2:00">
+        <span>1:00-2:00</span> Soft Skills Laboratory - Niraja Saraswat
+      </div>
+    </div>
+
+    <!-- Repeat for Wednesday, Thursday, Friday -->
+    <div class="day-column" id="Wednesday">
+      <h2>Wednesday</h2>
+      <div class="time-slot" data-time="8:00-9:00">
+        <span>8:00-9:00</span> Water Resources Engineering - Himanshu Arora
+      </div>
+      <div class="time-slot" data-time="9:00-10:00">
+        <span>9:00-10:00</span> Transportation Engineering - Jinendra Kumar Jain
+      </div>
+      <div class="time-slot" data-time="10:00-11:00">
+        <span>10:00-11:00</span> Break
+      </div>
+      <div class="time-slot" data-time="11:00-12:00">
+        <span>11:00-12:00</span> Construction Project Management - Sandeep Shrivastava
+      </div>
+    </div>
+
+    <div class="day-column" id="Thursday">
+      <h2>Thursday</h2>
+      <div class="time-slot" data-time="8:00-9:00">
+        <span>8:00-9:00</span> Soft Skills Laboratory - Niraja Saraswat
+      </div>
+      <div class="time-slot" data-time="9:00-10:00">
+        <span>9:00-10:00</span> Estimation and Costing - Sumit Khandelwal
+      </div>
+      <div class="time-slot" data-time="10:00-11:00">
+        <span>10:00-11:00</span> Construction Project Management - Sandeep Shrivastava
+      </div>
+    </div>
+
+    <div class="day-column" id="Friday">
+      <h2>Friday</h2>
+      <div class="time-slot" data-time="8:00-9:00">
+        <span>8:00-9:00</span> Water Resources Engineering - Himanshu Arora
+      </div>
+      <div class="time-slot" data-time="9:00-10:00">
+        <span>9:00-10:00</span> Transportation Engineering - Jinendra Kumar Jain
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function highlightCurrentClass() {
+      const now = new Date();
+      const currentDay = now.toLocaleString('en-US', { weekday: 'long' });
+      const currentTime = `${now.getHours()}:${now.getMinutes() < 10 ? '0' : ''}${now.getMinutes()}`;
+
+      document.querySelectorAll(`#${currentDay} .time-slot`).forEach(slot => {
+        slot.classList.remove('highlight');
+        const [startTime, endTime] = slot.dataset.time.split('-');
+
+        if (currentTime >= startTime && currentTime < endTime) {
+          slot.classList.add('highlight');
+        }
+      });
+    }
+
+    setInterval(highlightCurrentClass, 60000); // Update every minute
+    highlightCurrentClass(); // Initial check
+  </script>
+</body>
+</html>
